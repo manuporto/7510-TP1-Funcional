@@ -1,4 +1,4 @@
-(ns logical-interpreter)
+(ns rules-engine.logical-interpreter)
 
 (defn evaluate-query
   "Returns true if the rules and facts in database imply query, false if not. If

@@ -1,6 +1,6 @@
-(ns parent-database-test
+(ns rules-engine.parent-database-test
   (:require [clojure.test :refer :all]
-            [logical-interpreter :refer :all]))
+            [rules-engine.logical-interpreter :refer :all]))
 
 (def parent-database "
 	varon(juan).

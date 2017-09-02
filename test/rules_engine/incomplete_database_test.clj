@@ -1,6 +1,6 @@
-(ns incomplete-database-test
+(ns rules-engine.incomplete-database-test
   (:require [clojure.test :refer :all]
-            [logical-interpreter :refer :all]))
+            [rules-engine.logical-interpreter :refer :all]))
 
 (def incomplete-database "
 	varon(juan).
