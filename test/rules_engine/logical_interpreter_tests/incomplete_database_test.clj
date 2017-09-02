@@ -1,4 +1,4 @@
-(ns rules-engine.incomplete-database-test
+(ns rules-engine.logical-interpreter-tests.incomplete-database-test
   (:require [clojure.test :refer :all]
             [rules-engine.logical-interpreter :refer :all]))
 

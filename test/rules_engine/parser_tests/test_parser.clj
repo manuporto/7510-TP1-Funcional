@@ -1,4 +1,4 @@
-(ns rules-engine.test-parser
+(ns rules-engine.parser-tests.test-parser
   (:require [clojure.test :refer :all])
   (:use [rules-engine.parser :only [parse-facts get-facts]]
     [rules-engine.utils :only [long-str]]))

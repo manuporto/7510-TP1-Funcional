@@ -1,4 +1,4 @@
-(ns rules-engine.test-valid-fact
+(ns rules-engine.parser-tests.test-valid-fact
   (:require [clojure.test :refer :all])
   (:use [rules-engine.parser :only [valid-fact?]]))
 

@@ -1,6 +1,6 @@
-(ns rules-engine.test-query-evaluator
+(ns rules-engine.logical-interpreter-tests.test-query-evaluator
     (:require [clojure.test :refer :all])
-    (:use [rules_engine.query-evaluator :only [evaluate-query]]
+    (:use [rules-engine.logical-interpreter :only [evaluate-query]]
           [rules-engine.utils :only [long-str]]))
 
 (def valid-facts (long-str "male(manuel)." "male(esteban)." "father(esteban, manuel)." 

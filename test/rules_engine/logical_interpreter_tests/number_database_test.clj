@@ -1,4 +1,4 @@
-(ns rules-engine.number-database-test
+(ns rules-engine.logical-interpreter-tests.number-database-test
   (:require [clojure.test :refer :all]
             [rules-engine.logical-interpreter :refer :all]))
 
