@@ -43,3 +43,17 @@
     (if (.contains (map valid-fact? parsed-facts) false)
     (set nil)
     parsed-facts)))
+
+(defn load-database
+  [parsed-database]
+  ({
+    :facts (filter valid-fact? parsed-database)
+    :raw-facts (filter valid-fact? parsed-database)
+    :rules (filter valid-rule? parsed-database)}))
+
+(defn get-database
+  [raw-database]
+  (let [parsed-database (parse-facts raw-database)]
+    (if (valid-database? parsed-database)
+      (load-database parsed-database)
+      {})))
