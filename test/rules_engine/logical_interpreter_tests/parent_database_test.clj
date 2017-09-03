@@ -2,22 +2,22 @@
   (:require [clojure.test :refer :all]
             [rules-engine.logical-interpreter :refer :all]))
 
-;(def parent-database "
-;	varon(juan).
-;	varon(pepe).
-;	varon(hector).
-;	varon(roberto).
-;	varon(alejandro).
-;	mujer(maria).
-;	mujer(cecilia).
-;	padre(juan, pepe).
-;	padre(juan, pepa).
-;	padre(hector, maria).
-;	padre(roberto, alejandro).
-;	padre(roberto, cecilia).
-;	hijo(X, Y) :- varon(X), padre(Y, X).
-;	hija(X, Y) :- mujer(X), padre(Y, X).
-;")
+(def parent-database "
+	varon(juan).
+	varon(pepe).
+	varon(hector).
+	varon(roberto).
+	varon(alejandro).
+	mujer(maria).
+	mujer(cecilia).
+	padre(juan, pepe).
+	padre(juan, pepa).
+	padre(hector, maria).
+	padre(roberto, alejandro).
+	padre(roberto, cecilia).
+	hijo(X, Y) :- varon(X), padre(Y, X).
+	hija(X, Y) :- mujer(X), padre(Y, X).
+")
 ;
 ;(deftest parent-database-fact-test
 ;  (testing "varon(juan) should be true"
@@ -44,13 +44,13 @@
 ;    (is (= (evaluate-query parent-database "hija(maria, roberto)")
 ;           false))))
 ;
-;(deftest parent-database-empty-query-test
-;  (testing "varon should be nil"
-;    (is (= (evaluate-query parent-database "varon")
-;           nil)))
-;  (testing "maria should be nil"
-;    (is (= (evaluate-query parent-database "maria")
-;           nil)))
-;  (testing "empty should be nil"
-;    (is (= (evaluate-query parent-database "")
-;           nil))))
+(deftest parent-database-empty-query-test
+  (testing "varon should be nil"
+    (is (= (evaluate-query parent-database "varon")
+           nil)))
+  (testing "maria should be nil"
+    (is (= (evaluate-query parent-database "maria")
+           nil)))
+  (testing "empty should be nil"
+    (is (= (evaluate-query parent-database "")
+           nil))))
