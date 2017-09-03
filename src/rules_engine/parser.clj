@@ -35,7 +35,7 @@
   son(X,Y) :- male(X), father(Y, X).
   ' and returns a set containing only the facts"
   [database]
-  (set (map trim-whitespace-and-newlines (str/split database  #"\."))))
+  (set (filter (fn [x] (not (str/blank? x))) (map trim-whitespace-and-newlines (str/split database  #"\.")))))
 
 (defn get-facts
   [facts]
