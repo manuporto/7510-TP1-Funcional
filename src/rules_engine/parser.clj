@@ -6,9 +6,7 @@
   [fact]
   ; Matches strings with the form of <fact>(<argument1>, <argument2>, ...)
   ; Example: father(john, max)
-  (if (= nil (re-matches #"^[a-z]+\(([a-z]+, )*[a-z]+\)" fact))
-    false
-    true))
+  (not (= nil (re-matches #"^[a-z]+\(([a-z]+, )*[a-z]+\)" fact))))
 
 (defn valid-rule?
   "Check if a single rule it's valid"
@@ -23,7 +21,7 @@
   "Receives a lists of parsed strings representing the entire database. Then
   checks if the database it's valid and returns true or false."
   [database]
-  (.contains (map (or valid-fact? valid-rule?)  database) false))
+  (not (.contains (map (fn [x] (or (valid-fact? x) (valid-rule? x)))  database) false)))
 
 (defn trim-whitespace-and-newlines
   [string-to-trim]
