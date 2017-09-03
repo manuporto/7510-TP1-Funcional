@@ -4,9 +4,26 @@
 (defn valid-fact?
   "Checks if a single fact it's valid."
   [fact]
+  ; Matches strings with the form of <fact>(<argument1>, <argument2>, ...)
+  ; Example: father(john, max)
   (if (= nil (re-matches #"^[a-z]+\(([a-z]+, )*[a-z]+\)" fact))
     false
     true))
+
+(defn valid-rule?
+  "Check if a single rule it's valid"
+  [rule]
+  ; TODO refactor this regex
+  ; TODO check that variables used in facts are the same as the ones defined in the rule.
+  (not (= nil (re-matches
+                #"^[a-z]+\(([A-Z]+, )*[A-Z]+\) :- (([a-z]+\(([A-Z]+, )*[A-Z]+\)), )*([a-z]+\(([A-Z]+, )*[A-Z]+\))"
+                rule))))
+
+(defn valid-database?
+  "Receives a lists of parsed strings representing the entire database. Then
+  checks if the database it's valid and returns true or false."
+  [database]
+  (.contains (map (or valid-fact? valid-rule?)  database) false))
 
 (defn trim-whitespace-and-newlines
   [string-to-trim]
