@@ -18,24 +18,24 @@
 	hijo(X, Y) :- varon(X), padre(Y, X).
 	hija(X, Y) :- mujer(X), padre(Y, X).
 ")
-;
-;(deftest parent-database-fact-test
-;  (testing "varon(juan) should be true"
-;    (is (= (evaluate-query parent-database "varon(juan)")
-;           true)))
-;  (testing "varon(maria) should be false"
-;    (is (= (evaluate-query parent-database "varon(maria)")
-;           false)))
-;  (testing "mujer(cecilia) should be true"
-;    (is (= (evaluate-query parent-database "mujer(cecilia)")
-;           true)))
-;  (testing "padre(juan, pepe) should be true"
-;    (is (= (evaluate-query parent-database "padre(juan, pepe)")
-;           true)))
-;  (testing "padre(mario, pepe) should be false"
-;    (is (= (evaluate-query parent-database "padre(mario, pepe)")
-;           false))))
-;
+
+(deftest parent-database-fact-test
+  (testing "varon(juan) should be true"
+    (is (= (evaluate-query parent-database "varon(juan)")
+           true)))
+  (testing "varon(maria) should be false"
+    (is (= (evaluate-query parent-database "varon(maria)")
+           false)))
+  (testing "mujer(cecilia) should be true"
+    (is (= (evaluate-query parent-database "mujer(cecilia)")
+           true)))
+  (testing "padre(juan, pepe) should be true"
+    (is (= (evaluate-query parent-database "padre(juan, pepe)")
+           true)))
+  (testing "padre(mario, pepe) should be false"
+    (is (= (evaluate-query parent-database "padre(mario, pepe)")
+           false))))
+
 ;(deftest parent-database-rule-test
 ;  (testing "hijo(pepe, juan) should be true"
 ;    (is (= (evaluate-query parent-database "hijo(pepe, juan)")
