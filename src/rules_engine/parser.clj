@@ -30,7 +30,7 @@
   male(juan).
   father(juan, manuel).
   son(X,Y) :- male(X), father(Y, X).
-  ' and returns a set containing only the facts"
+  ' and returns a set containing both the facts and the rules definitions"
   [database]
   (set (filter utils/not-blank? (map utils/trim-whitespace-and-newlines (str/split database  #"\.")))))
 
