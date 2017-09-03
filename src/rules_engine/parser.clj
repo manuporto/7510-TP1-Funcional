@@ -46,10 +46,8 @@
 
 (defn load-database
   [parsed-database]
-  ({
-    :facts (filter valid-fact? parsed-database)
-    :raw-facts (filter valid-fact? parsed-database)
-    :rules (filter valid-rule? parsed-database)}))
+  {:facts (filter valid-fact? parsed-database), :raw-facts (filter valid-fact? parsed-database),
+   :rules (filter valid-rule? parsed-database)})
 
 (defn get-database
   [raw-database]
