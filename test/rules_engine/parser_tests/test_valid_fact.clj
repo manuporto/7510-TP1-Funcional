@@ -8,7 +8,7 @@
   (is (true? (valid-fact? "father(esteban, juan)"))))
 
 (deftest fact-missing-closing-paren-test
-  (testing "Passing a fact missing it's closing parenthesis should return false")
+  (testing "Passing a fact missing some of it's parenthesis should return false")
   (is (false? (valid-fact? "male(manuel")))
   (is (false? (valid-fact? "malemanuel)")))
   (is (false? (valid-fact? "malemanuel"))))

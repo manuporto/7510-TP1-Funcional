@@ -1,6 +1,6 @@
 (ns rules-engine.parser-tests.test-parser
   (:require [clojure.test :refer :all])
-  (:use [rules-engine.parser :only [parse-facts get-facts]]
+  (:use [rules-engine.parser :only [parse-database get-facts]]
     [rules-engine.utils :only [long-str]]))
 
 (def single-valid-fact "male(manuel)")
@@ -9,18 +9,18 @@
   "female(diana)."))
 (def multiple-facts (long-str multiple-valid-facts "mother(diana,"))
 
-; parse-facts tests
+; parse-database tests
 
 (deftest parse-single-fact-test
   (testing "Parsing a single fact should return a set containing only that fact.")
   (let [expected (set '("male(manuel)"))]
-    (is (= (parse-facts single-valid-fact) expected))))
+    (is (= (parse-database single-valid-fact) expected))))
 
 (deftest parse-multiple-facts-test
   (testing "Parsing multiple facts should return a set containing all of them.")
   (let [expected 
     (set '("male(manuel)" "male(esteban)" "father(esteban, manuel)" "female(diana)"))]
-    (is (= (parse-facts multiple-valid-facts) expected))))
+    (is (= (parse-database multiple-valid-facts) expected))))
 
 ; get-facts tests
 
