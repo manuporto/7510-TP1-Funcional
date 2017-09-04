@@ -1,7 +1,6 @@
 (ns rules-engine.parser-tests.test-parser
   (:require [clojure.test :refer :all])
   (:use [rules-engine.parser.database-parser :only [parse-database]]
-        [rules-engine.parser.fact-parser :only [get-facts]]
         [rules-engine.utils :only [long-str]]))
 
 (def single-valid-fact "male(manuel)")
