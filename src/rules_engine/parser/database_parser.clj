@@ -1,4 +1,4 @@
-(ns rules-engine.parser
+(ns rules-engine.parser.database-parser
   (:require [clojure.string :as str]
             [rules-engine.utils :as utils]))
 

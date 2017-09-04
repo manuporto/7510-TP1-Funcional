@@ -1,6 +1,6 @@
 (ns rules-engine.parser-tests.get-database-test
   (:require [clojure.test :refer :all])
-  (:use [rules-engine.parser :only [get-database]]))
+  (:use [rules-engine.parser.database-parser :only [get-database]]))
 
 (def valid-database "
 	varon(juan).

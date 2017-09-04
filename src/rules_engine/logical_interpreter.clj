@@ -1,5 +1,5 @@
 (ns rules-engine.logical-interpreter
-  (:use [rules-engine.parser :only [get-database valid-fact? valid-rule?]]))
+  (:use [rules-engine.parser.database-parser :only [get-database valid-fact? valid-rule?]]))
 
 (defn evaluate-query
   "Returns true if the rules and facts in database imply query, false if not. If

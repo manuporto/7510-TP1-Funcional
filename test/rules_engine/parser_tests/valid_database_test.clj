@@ -1,6 +1,6 @@
 (ns rules-engine.parser-tests.valid-database-test
   (:require [clojure.test :refer :all])
-  (:use [rules-engine.parser :only [valid-database?]]))
+  (:use [rules-engine.parser.database-parser :only [valid-database?]]))
 
 (def valid-database (set '(
                             "male(manuel)"
