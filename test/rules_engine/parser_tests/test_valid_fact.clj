@@ -1,6 +1,6 @@
 (ns rules-engine.parser-tests.test-valid-fact
   (:require [clojure.test :refer :all])
-  (:use [rules-engine.parser.database-parser :only [valid-fact?]]))
+  (:use [rules-engine.parser.fact-parser :only [valid-fact?]]))
 
 (deftest valid-fact-test
   (testing "Passing a valid fact to valid-fact? should return true")

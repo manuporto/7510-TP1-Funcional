@@ -1,22 +1,8 @@
 (ns rules-engine.parser.database-parser
   (:require [clojure.string :as str]
-            [rules-engine.utils :as utils]))
-
-(defn valid-fact?
-  "Checks if a single fact it's valid."
-  [fact]
-  ; Matches strings with the form of <fact>(<argument1>, <argument2>, ...)
-  ; Example: father(john, max)
-  (not (= nil (re-matches #"^[a-z]+\(([a-z]+, )*[a-z]+\)" fact))))
-
-(defn valid-rule?
-  "Check if a single rule it's valid"
-  [rule]
-  ; TODO refactor this regex
-  ; TODO check that variables used in facts are the same as the ones defined in the rule.
-  (not (= nil (re-matches
-                #"^[a-z]+\(([A-Z]+, )*[A-Z]+\) :- (([a-z]+\(([A-Z]+, )*[A-Z]+\)), )*([a-z]+\(([A-Z]+, )*[A-Z]+\))"
-                rule))))
+            [rules-engine.utils :as utils])
+  (:use [rules-engine.parser.fact-parser :only [valid-fact?]]
+        [rules-engine.parser.rule-parser :only [valid-rule?]]))
 
 (defn valid-database?
   "Receives a lists of parsed strings representing the entire database. Then
@@ -33,13 +19,6 @@
   ' and returns a set containing both the facts and the rules definitions"
   [database]
   (set (filter utils/not-blank? (map utils/trim-whitespace-and-newlines (str/split database  #"\.")))))
-
-(defn get-facts
-  [facts]
-  (let [parsed-facts (parse-database facts)]
-    (if (.contains (map valid-fact? parsed-facts) false)
-    (set nil)
-    parsed-facts)))
 
 (defn load-database
   [parsed-database]
