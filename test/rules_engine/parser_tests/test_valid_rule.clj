@@ -1,6 +1,6 @@
 (ns rules-engine.parser-tests.test-valid-rule
   (:require [clojure.test :refer :all])
-  (:use [rules-engine.parser :only [valid-rule?]]))
+  (:use [rules-engine.parser.rule-parser :only [valid-rule?]]))
 
 (deftest valid-rule-test
   (testing "Passing a valid rule to valid-rule? should return true")
