@@ -32,5 +32,20 @@
   [rule]
   (let [name (get-rule-name rule)
         args (get-rule-args rule)
-        facts (map create-entity-fact (get-rule-facts rule))]
+        facts (get-rule-facts rule)]
     (new-rule name args facts)))
+
+(defn replace-args
+  "Receives a fact and a hash map with mapped query arguments"
+  [fact mapped-args]
+  (str/replace fact (re-pattern (str/join "|" (keys mapped-args))) mapped-args))
+
+(defn evaluate-rule-query
+  "Receives a database and a query belonging to a rule. Returns list of facts
+  with the default args replaced by the query ones"
+  [database query]
+  (let [name (get-rule-name query)
+        args (get-rule-args query)
+        matching-rule (first (filter (fn [x] (= (:name x) name)) (:rules database)))
+        mapped-args (zipmap (:args matching-rule) args)]
+    (map (fn [x] (replace-args x mapped-args)) (:facts matching-rule))))
