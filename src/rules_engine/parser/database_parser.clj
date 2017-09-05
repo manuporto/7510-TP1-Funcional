@@ -2,7 +2,7 @@
   (:require [clojure.string :as str]
             [rules-engine.utils :as utils])
   (:use [rules-engine.parser.fact-parser :only [valid-fact?]]
-        [rules-engine.parser.rule-parser :only [valid-rule?]]))
+        [rules-engine.parser.rule-parser :only [valid-rule? create-entity-rule]]))
 
 (defn valid-database?
   "Receives a lists of parsed strings representing the entire database. Then
@@ -22,8 +22,8 @@
 
 (defn load-database
   [parsed-database]
-  {:facts (filter valid-fact? parsed-database), :raw-facts (filter valid-fact? parsed-database),
-   :rules (filter valid-rule? parsed-database)})
+  {:facts (filter valid-fact? parsed-database),
+   :rules (map create-entity-rule (filter valid-rule? parsed-database))})
 
 (defn get-database
   [raw-database]

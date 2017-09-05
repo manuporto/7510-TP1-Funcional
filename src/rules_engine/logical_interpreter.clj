@@ -9,5 +9,5 @@
   (let [database (get-database raw-database)]
     (cond
       (= {} database) nil
-      (true? (valid-fact? query)) (.contains (get database :raw-facts) query)
+      (true? (valid-fact? query)) (.contains (get database :facts) query)
       :else nil)))
