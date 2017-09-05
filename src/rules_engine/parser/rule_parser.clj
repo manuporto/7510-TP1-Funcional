@@ -1,7 +1,7 @@
 (ns rules-engine.parser.rule-parser
-  (:require [clojure.string :as str]
-            [rules-engine.parser.fact-parser :only [create-entity-fact]])
-  (:use [rules-engine.entities.rule :only [new-rule]]))
+  (:require [clojure.string :as str])
+  (:use [rules-engine.entities.rule :only [new-rule]]
+        [rules-engine.parser.fact-parser :only [create-entity-fact]]))
 
 (defn valid-rule?
   "Check if a single rule it's valid"
@@ -25,7 +25,6 @@
 (defn get-rule-facts
   "Receive a string containing a raw rule and return it's required facts as a list"
   [rule]
-  ;not working and not clear
   (str/split (str/replace (subs rule (+ 3 (str/index-of rule ":- "))) #"\), " ";") #";"))
 
 (defn create-entity-rule
