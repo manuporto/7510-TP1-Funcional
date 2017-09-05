@@ -20,12 +20,12 @@
 (defn get-rule-args
   "Receive a string containing a raw rule and return it's arguments as a list"
   [rule]
-  (str/split (subs rule (str/index-of rule "(") (str/index-of rule ")")) #", "))
+  (str/split (subs rule (inc (str/index-of rule "(")) (str/index-of rule ")")) #", "))
 
 (defn get-rule-facts
   "Receive a string containing a raw rule and return it's required facts as a list"
   [rule]
-  (str/split (str/replace (subs rule (+ 3 (str/index-of rule ":- "))) #"\), " ";") #";"))
+  (str/split (str/replace (subs rule (+ 3 (str/index-of rule ":- "))) #"\), " ");") #";"))
 
 (defn create-entity-rule
   "Receive a raw string containing a rule and create a Rule entity from it."

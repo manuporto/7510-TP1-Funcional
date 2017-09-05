@@ -13,7 +13,7 @@
   "Receive a raw string containing a fact and create a Fact entity from it."
   [fact]
   (let [name (subs fact 0 (str/index-of fact "("))
-        args (str/split (subs fact (inc (str/index-of fact "(")) (str/index-of fact ")")) ", ")]
+        args (str/split (subs fact (inc (str/index-of fact "(")) (str/index-of fact ")")) #", ")]
         (new-fact name args)))
 
 ; TODO refactor or delete
