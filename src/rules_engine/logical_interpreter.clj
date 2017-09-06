@@ -4,6 +4,7 @@
         [rules-engine.parser.rule-parser :only [evaluate-rule-query]]))
 
 (defn evaluate-rule-facts
+  "Receives a list of queried facts. Returns true if all of them are true."
   [database-facts queried-facts]
   (not (.contains (map #(.contains database-facts %) queried-facts) false)))
 
