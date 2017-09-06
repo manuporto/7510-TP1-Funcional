@@ -1,4 +1,4 @@
-(ns rules-engine.parser-tests.get-database-test
+(ns rules-engine.parser-tests.database.get-database-test
   (:require [clojure.test :refer :all])
   (:use [rules-engine.parser.database-parser :only [get-database]]))
 
