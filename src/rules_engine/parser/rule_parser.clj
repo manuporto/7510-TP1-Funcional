@@ -46,6 +46,6 @@
   [database query]
   (let [name (get-rule-name query)
         args (get-rule-args query)
-        matching-rule (first (filter (fn [x] (= (:name x) name)) (:rules database)))
+        matching-rule (first (filter #(= (:name %) name) (:rules database)))
         mapped-args (zipmap (:args matching-rule) args)]
-    (map (fn [x] (replace-args x mapped-args)) (:facts matching-rule))))
+    (map #(replace-args % mapped-args) (:facts matching-rule))))

@@ -9,7 +9,7 @@
   checks if the database it's valid (all facts and rules are valid) and 
   returns true or false."
   [database]
-  (not (.contains (map (fn [x] (or (valid-fact? x) (valid-rule? x)))  database) false)))
+  (not (.contains (map #(or (valid-fact? %) (valid-rule? %))  database) false)))
 
 (defn parse-database
   "Receives a database (string) containing facts and rules in the form of 
