@@ -6,7 +6,8 @@
 
 (defn valid-database?
   "Receives a lists of parsed strings representing the entire database. Then
-  checks if the database it's valid and returns true or false."
+  checks if the database it's valid (all facts and rules are valid) and 
+  returns true or false."
   [database]
   (not (.contains (map (fn [x] (or (valid-fact? x) (valid-rule? x)))  database) false)))
 
