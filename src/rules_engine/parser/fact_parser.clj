@@ -30,11 +30,3 @@
   "Receive a Fact entity and return a string containing a raw fact"
   [fact]
   (str (:name fact) "(" (str/join ", " (:args fact)) ")"))
-
-; TODO refactor or delete
-;(defn get-facts
-;  [facts]
-;  (let [parsed-facts (parse-database facts)]
-;    (if (.contains (map valid-fact? parsed-facts) false)
-;      (set nil)
-;      parsed-facts)))

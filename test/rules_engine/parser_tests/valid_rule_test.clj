@@ -1,4 +1,4 @@
-(ns rules-engine.parser-tests.test-valid-rule
+(ns rules-engine.parser-tests.valid-rule-test
   (:require [clojure.test :refer :all])
   (:use [rules-engine.parser.rule-parser :only [valid-rule?]]))
 
