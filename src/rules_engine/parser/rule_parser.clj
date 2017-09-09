@@ -36,8 +36,11 @@
     (new-rule name args facts)))
 
 (defn replace-args
-  "Receives a fact and a hash map with mapped query arguments"
+  "Receives a fact and a hash map with mapped query arguments.
+  Given a fact like: male(X) and a map with args {X a Y b} returns
+  male(a)."
   [fact mapped-args]
+  ; Creates a pattern of the form X|Y|Z to match and replace with the mapped args
   (str/replace fact (re-pattern (str/join "|" (keys mapped-args))) mapped-args))
 
 (defn evaluate-rule-query
