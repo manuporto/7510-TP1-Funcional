@@ -17,11 +17,13 @@
   male(juan).
   father(juan, manuel).
   son(X,Y) :- male(X), father(Y, X).
-  ' and returns a set containing both the facts and the rules definitions"
+  ' and returns a set containing both the facts and the rules definitions."
   [database]
   (set (filter utils/not-blank? (map utils/trim-whitespace-and-newlines (str/split database  #"\.")))))
 
 (defn load-database
+  "Receives a list of strings representing a parsed-database and returns a hash
+  map representing the final database."
   [parsed-database]
   (let [facts (filter valid-fact? parsed-database)
         rules (filter valid-rule? parsed-database)]
@@ -31,6 +33,8 @@
      :rule-names (map get-rule-name rules)}))
 
 (defn get-database
+  "Receives a string containing a raw database and return a processed one if 
+  the original database it's valid."
   [raw-database]
   (let [parsed-database (parse-database raw-database)]
     (if (valid-database? parsed-database)

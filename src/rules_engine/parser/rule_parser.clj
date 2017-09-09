@@ -6,8 +6,8 @@
 (defn valid-rule?
   "Check if a single rule it's valid"
   [rule]
-  ; TODO refactor this regex
-  ; TODO check that variables used in facts are the same as the ones defined in the rule.
+  ; Matches a rule of the form 
+  ; <rule>(<arg1>, <arg2>, ...) :- <fact1>(<arg1>, ...), <fact2>(<arg2>), ...
   (not (= nil (re-matches
                 #"^[a-z]+\(([A-Z]+, )*[A-Z]+\) :- (([a-z]+\(([A-Z]+, )*[A-Z]+\)), )*([a-z]+\(([A-Z]+, )*[A-Z]+\))"
                 rule))))
