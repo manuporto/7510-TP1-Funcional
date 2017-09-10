@@ -9,8 +9,6 @@
   "female(diana)."))
 (def multiple-facts (long-str multiple-valid-facts "mother(diana,"))
 
-; parse-database tests
-
 (deftest parse-single-fact-test
   (testing "Parsing a single fact should return a set containing only that fact.")
   (let [expected (set '("male(manuel)"))]

@@ -1,7 +1,7 @@
 (ns rules-engine.parser.rule-parser
-  (:require [clojure.string :as str])
-  (:use [rules-engine.entities.rule :only [new-rule]]
-        [rules-engine.parser.fact-parser :only [create-entity-fact]]))
+  (:require [clojure.string :as str]
+            [rules-engine.entities.rule :refer (->Rule)])
+  (:use [rules-engine.parser.fact-parser :only [create-entity-fact]]))
 
 (defn valid-rule?
   "Check if a single rule it's valid"
@@ -33,7 +33,7 @@
   (let [name (get-rule-name rule)
         args (get-rule-args rule)
         facts (get-rule-facts rule)]
-    (new-rule name args facts)))
+    (->Rule name args facts)))
 
 (defn replace-args
   "Receives a fact and a hash map with mapped query arguments.

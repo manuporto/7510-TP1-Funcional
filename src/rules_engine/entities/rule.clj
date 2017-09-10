@@ -4,7 +4,3 @@
 ; args: list of strings containing args names
 ; facts: list of strings containing facts
 (defrecord Rule [name args facts])
-
-(defn new-rule
-  [name args facts]
-  (Rule. name args facts))

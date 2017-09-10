@@ -1,6 +1,6 @@
 (ns rules-engine.parser.fact-parser
-  (:require [clojure.string :as str])
-  (:use [rules-engine.entities.fact :only [new-fact]]))
+  (:require [clojure.string :as str]
+            [rules-engine.entities.fact :refer (->Fact)]))
 
 (defn valid-fact?
   "Checks if a single fact it's valid."
@@ -24,7 +24,7 @@
   [fact]
   (let [name (get-fact-name fact)
         args (get-fact-args fact)]
-        (new-fact name args)))
+        (->Fact name args)))
 
 (defn create-raw-fact
   "Receive a Fact entity and return a string containing a raw fact"
