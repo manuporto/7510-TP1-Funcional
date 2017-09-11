@@ -1,5 +1,6 @@
 # 7510-TP1-Funcional
 [![Build Status](https://travis-ci.org/manuporto/7510-TP1-Funcional.svg?branch=master)](https://travis-ci.org/manuporto/7510-TP1-Funcional)
+[![codecov](https://codecov.io/gh/manuporto/7510-TP1-Funcional/branch/master/graph/badge.svg)](https://codecov.io/gh/manuporto/7510-TP1-Funcional)
 
 Repositorio del primer trabajo practico de la materia 7510 Tecnicas de Diseño
 
