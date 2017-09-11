@@ -20,8 +20,8 @@
   son(X,Y) :- male(X), father(Y, X).
   ' and returns a set containing both the facts and the rules definitions."
   [database]
-  (set (filter utils/not-blank? (map utils/trim-whitespace-and-newlines 
-    (str/split database  line-end-rgx)))))
+  (set (filter utils/not-blank? (map utils/trim-whitespace-and-newlines
+                                     (str/split database  line-end-rgx)))))
 
 (defn load-database
   "Receives a list of strings representing a parsed-database and returns a hash

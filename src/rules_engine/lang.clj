@@ -12,5 +12,5 @@
 
 (def valid-query-format #"^[a-z]+\(([a-z]+, )*[a-z]+\)")
 (def valid-fact-format #"^[a-z]+\(([a-z]+, )*[a-z]+\)")
-(def valid-rule-format 
-    #"^[a-z]+\(([A-Z]+, )*[A-Z]+\) :- (([a-z]+\(([A-Z]+, )*[A-Z]+\)), )*([a-z]+\(([A-Z]+, )*[A-Z]+\))")
+(def valid-rule-format
+  #"^[a-z]+\(([A-Z]+, )*[A-Z]+\) :- (([a-z]+\(([A-Z]+, )*[A-Z]+\)), )*([a-z]+\(([A-Z]+, )*[A-Z]+\))")

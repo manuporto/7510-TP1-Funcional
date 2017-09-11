@@ -18,15 +18,15 @@
 (defn get-fact-args
   "Receive a string containing a raw fact and return it's arguments as a list"
   [fact]
-  (str/split (subs fact (inc (str/index-of fact lang/open-arg)) 
-    (str/index-of fact lang/close-arg)) lang/arg-sep-rgx))
+  (str/split (subs fact (inc (str/index-of fact lang/open-arg))
+                   (str/index-of fact lang/close-arg)) lang/arg-sep-rgx))
 
 (defn create-entity-fact
   "Receive a raw string containing a fact and create a Fact entity from it."
   [fact]
   (let [name (get-fact-name fact)
         args (get-fact-args fact)]
-        (->Fact name args)))
+    (->Fact name args)))
 
 (defn create-raw-fact
   "Receive a Fact entity and return a string containing a raw fact"

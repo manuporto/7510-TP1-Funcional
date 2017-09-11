@@ -19,8 +19,8 @@
 (defn get-rule-args
   "Receive a string containing a raw rule and return it's arguments as a list"
   [rule]
-  (str/split (subs rule (inc (str/index-of rule lang/open-arg)) 
-    (str/index-of rule lang/close-arg)) lang/arg-sep-rgx))
+  (str/split (subs rule (inc (str/index-of rule lang/open-arg))
+                   (str/index-of rule lang/close-arg)) lang/arg-sep-rgx))
 
 (defn get-rule-facts
   "Receive a string containing a raw rule and return it's required facts as a list"

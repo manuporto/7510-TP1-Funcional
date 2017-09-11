@@ -2,15 +2,13 @@
   (:require [clojure.test :refer :all])
   (:use [rules-engine.parser.database-parser :only [valid-database?]]))
 
-(def valid-database (set '(
-                            "male(manuel)"
-                            "male(esteban)"
-                            "father(esteban, manuel)"
-                            "female(diana)"
-                            "son(X, Y) :- male(X), father(Y, X)")))
+(def valid-database (set '("male(manuel)"
+                           "male(esteban)"
+                           "father(esteban, manuel)"
+                           "female(diana)"
+                           "son(X, Y) :- male(X), father(Y, X)")))
 
-(def valid-database-2 #{
-                        "hijo(X, Y) :- varon(X), padre(Y, X)"
+(def valid-database-2 #{"hijo(X, Y) :- varon(X), padre(Y, X)"
                         "varon(hector)"
                         "padre(roberto, alejandro)"
                         "padre(juan, pepa)"
@@ -25,10 +23,9 @@
                         "mujer(maria)"
                         "varon(alejandro)"})
 
-(def invalid-database (set '(
-                              "male(manuel)"
-                              "male(esteban"
-                              "son(X, Y) : male(X), ")))
+(def invalid-database (set '("male(manuel)"
+                             "male(esteban"
+                             "son(X, Y) : male(X), ")))
 
 (deftest valid-database-test
   (testing "Passing a valid database to valid-database? should return true.")
