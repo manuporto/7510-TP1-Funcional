@@ -13,6 +13,9 @@ Repositorio del primer trabajo practico de la materia 7510 Tecnicas de Diseño
 ### Correr tests
 `lein test`
 
+### Coverage
+`lein cloverage`
+
 ## Licencia
 
 Copyright © 2017
