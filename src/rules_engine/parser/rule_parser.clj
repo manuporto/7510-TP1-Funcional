@@ -1,5 +1,6 @@
 (ns rules-engine.parser.rule-parser
   (:require [clojure.string :as str]
+            [rules-engine.lang :as lang]
             [rules-engine.entities.rule :refer (->Rule)])
   (:use [rules-engine.parser.fact-parser :only [create-entity-fact]]))
 
@@ -8,24 +9,23 @@
   [rule]
   ; Matches a rule of the form 
   ; <rule>(<arg1>, <arg2>, ...) :- <fact1>(<arg1>, ...), <fact2>(<arg2>), ...
-  (not (= nil (re-matches
-                #"^[a-z]+\(([A-Z]+, )*[A-Z]+\) :- (([a-z]+\(([A-Z]+, )*[A-Z]+\)), )*([a-z]+\(([A-Z]+, )*[A-Z]+\))"
-                rule))))
+  (not (= nil (re-matches lang/valid-rule-format rule))))
 
 (defn get-rule-name
   "Receive a string containing a raw rule and return it's name"
   [rule]
-  (subs rule 0 (str/index-of rule "(")))
+  (subs rule 0 (str/index-of rule lang/open-arg)))
 
 (defn get-rule-args
   "Receive a string containing a raw rule and return it's arguments as a list"
   [rule]
-  (str/split (subs rule (inc (str/index-of rule "(")) (str/index-of rule ")")) #", "))
+  (str/split (subs rule (inc (str/index-of rule lang/open-arg)) 
+    (str/index-of rule lang/close-arg)) lang/arg-sep-rgx))
 
 (defn get-rule-facts
   "Receive a string containing a raw rule and return it's required facts as a list"
   [rule]
-  (str/split (str/replace (subs rule (+ 3 (str/index-of rule ":- "))) #"\), " ");") #";"))
+  (str/split (str/replace (subs rule (+ 3 (str/index-of rule lang/rule-eq))) #"\), " ");") #";"))
 
 (defn create-entity-rule
   "Receive a raw string containing a rule and create a Rule entity from it."

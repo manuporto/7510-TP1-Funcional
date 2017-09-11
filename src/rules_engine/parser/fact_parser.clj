@@ -8,7 +8,7 @@
   [fact]
   ; Matches strings with the form of <fact>(<argument1>, <argument2>, ...)
   ; Example: father(john, max)
-  (not (= nil (re-matches #"^[a-z]+\(([a-z]+, )*[a-z]+\)" fact))))
+  (not (= nil (re-matches lang/valid-fact-format fact))))
 
 (defn get-fact-name
   "Receive a string containing a raw fact and return it's name"
