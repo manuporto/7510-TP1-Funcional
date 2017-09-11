@@ -10,12 +10,12 @@
 (def multiple-facts (long-str multiple-valid-facts "mother(diana,"))
 
 (deftest parse-single-fact-test
-  (testing "Parsing a single fact should return a set containing only that fact.")
-  (let [expected (set '("male(manuel)"))]
-    (is (= (parse-database single-valid-fact) expected))))
+  (testing "Parsing a single fact should return a set containing only that fact."
+    (let [expected (set '("male(manuel)"))]
+      (is (= (parse-database single-valid-fact) expected)))))
 
 (deftest parse-multiple-facts-test
-  (testing "Parsing multiple facts should return a set containing all of them.")
-  (let [expected
-        (set '("male(manuel)" "male(esteban)" "father(esteban, manuel)" "female(diana)"))]
-    (is (= (parse-database multiple-valid-facts) expected))))
+  (testing "Parsing multiple facts should return a set containing all of them."
+    (let [expected
+          (set '("male(manuel)" "male(esteban)" "father(esteban, manuel)" "female(diana)"))]
+      (is (= (parse-database multiple-valid-facts) expected)))))

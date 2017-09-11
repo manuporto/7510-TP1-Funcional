@@ -28,10 +28,10 @@
                              "son(X, Y) : male(X), ")))
 
 (deftest valid-database-test
-  (testing "Passing a valid database to valid-database? should return true.")
-  (is (true? (valid-database? valid-database)))
-  (is (true? (valid-database? valid-database-2))))
+  (testing "Passing a valid database to valid-database? should return true."
+    (is (true? (valid-database? valid-database)))
+    (is (true? (valid-database? valid-database-2)))))
 
 (deftest invalid-database-test
-  (testing "Passing an invalid database to valid-database? should return true.")
-  (is (false? (valid-database? invalid-database))))
+  (testing "Passing an invalid database to valid-database? should return true."
+    (is (false? (valid-database? invalid-database)))))

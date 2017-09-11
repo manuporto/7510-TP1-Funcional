@@ -25,10 +25,9 @@
 ")
 
 (deftest valid-database-test
-  (testing "Passing a valid raw database to get-database should return a valid map")
-  (let [database (get-database valid-database)]
-    (is (not (= {} database)))))
+  (testing "Passing a valid raw database to get-database should return a valid map"
+    (is (not (= {} (get-database valid-database))))))
 
 (deftest invalid-database-test
-  (testing "Passing a non-valid raw database to get-database should return an empty map")
-  (is (= {} (get-database invalid-database))))
+  (testing "Passing a non-valid raw database to get-database should return an empty map"
+    (is (= {} (get-database invalid-database)))))
