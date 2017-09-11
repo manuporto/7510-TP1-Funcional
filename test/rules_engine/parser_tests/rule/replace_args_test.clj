@@ -10,4 +10,4 @@
 
 (deftest multiple-argument-fact-test
     (testing "Calling replace-args with father(Y, X) and {X a Y b} should return fahter(b, a)."
-        (is (= (replace-args "father(Y, X)" {"X" "a", "Y" "b"})))))
+        (is (= (replace-args "father(Y, X)" {"X" "a", "Y" "b"}) "father(b, a)"))))
