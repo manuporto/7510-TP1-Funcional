@@ -27,8 +27,3 @@
   (let [name (get-fact-name fact)
         args (get-fact-args fact)]
     (->Fact name args)))
-
-(defn create-raw-fact
-  "Receive a Fact entity and return a string containing a raw fact"
-  [fact]
-  (str (:name fact) lang/open-arg (str/join lang/arg-sep (:args fact)) lang/close-arg))
