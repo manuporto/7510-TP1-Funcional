@@ -7,9 +7,9 @@
 (defn valid-rule?
   "Check if a single rule it's valid"
   [rule]
-  ; Matches a rule of the form 
+  ; Matches a rule of the form
   ; <rule>(<arg1>, <arg2>, ...) :- <fact1>(<arg1>, ...), <fact2>(<arg2>), ...
-  (not (= nil (re-matches lang/valid-rule-format rule))))
+  (not (nil? (re-matches lang/valid-rule-format rule))))
 
 (defn get-rule-name
   "Receive a string containing a raw rule and return it's name"

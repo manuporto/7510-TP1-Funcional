@@ -17,7 +17,7 @@
   (is (false? (evaluate-query valid-facts "father(manuel, esteban)"))))
 
 (deftest invalid-queries-of-valid-facts-test
-  (testing "Doing invalid queries or queries of non existent 
+  (testing "Doing invalid queries or queries of non existent
     valid facts database should return always false")
   (is (nil? (evaluate-query valid-facts "male(manuel,)")))
   (is (nil? (evaluate-query valid-facts "father(esteban, manuel"))))

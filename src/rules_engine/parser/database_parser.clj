@@ -7,7 +7,7 @@
 
 (defn valid-database?
   "Receives a lists of parsed strings representing the entire database. Then
-  checks if the database it's valid (all facts and rules are valid) and 
+  checks if the database it's valid (all facts and rules are valid) and
   returns true or false."
   [database]
   (not (.contains (map #(or (valid-fact? %) (valid-rule? %))  database) false)))
@@ -35,7 +35,7 @@
      :rule-names (map get-rule-name rules)}))
 
 (defn get-database
-  "Receives a string containing a raw database and return a processed one if 
+  "Receives a string containing a raw database and return a processed one if
   the original database it's valid."
   [raw-database]
   (let [parsed-database (parse-database raw-database)]

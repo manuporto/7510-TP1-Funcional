@@ -5,7 +5,7 @@
 (defn valid-query?
   "Checks if a single query it's valid."
   [query]
-  (not (= nil (re-matches lang/valid-query-format query))))
+  (not (nil? (re-matches lang/valid-query-format query))))
 
 (defn get-query-name
   "Receive a string containing a query and return it's name"
