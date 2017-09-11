@@ -1,6 +1,6 @@
 (ns rules-engine.logical-interpreter
   (:use [rules-engine.parser.database-parser :only [get-database]]
-        [rules-engine.parser.fact-parser :only [valid-fact? get-fact-name]]
+        [rules-engine.parser.query-parser :only [valid-query? get-query-name]]
         [rules-engine.parser.rule-parser :only [evaluate-rule-query]]))
 
 (defn evaluate-rule-facts
@@ -14,6 +14,6 @@
   [raw-database query]
   (let [database (get-database raw-database)]
     (cond
-      (or (= {} database) (false? (valid-fact? query))) nil
-      (.contains (:fact-names database) (get-fact-name query)) (.contains (:facts database) query)
-      (.contains (:rule-names database) (get-fact-name query)) (evaluate-rule-facts (:facts database) (evaluate-rule-query database query)))))
+      (or (= {} database) (false? (valid-query? query))) nil
+      (.contains (:fact-names database) (get-query-name query)) (.contains (:facts database) query)
+      (.contains (:rule-names database) (get-query-name query)) (evaluate-rule-facts (:facts database) (evaluate-rule-query database query)))))
