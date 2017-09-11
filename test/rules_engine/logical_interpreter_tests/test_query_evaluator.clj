@@ -1,10 +1,10 @@
 (ns rules-engine.logical-interpreter-tests.test-query-evaluator
-    (:require [clojure.test :refer :all])
-    (:use [rules-engine.logical-interpreter :only [evaluate-query]]
-          [rules-engine.utils :only [long-str]]))
+  (:require [clojure.test :refer :all])
+  (:use [rules-engine.logical-interpreter :only [evaluate-query]]
+        [rules-engine.utils :only [long-str]]))
 
-(def valid-facts (long-str "male(manuel)." "male(esteban)." "father(esteban, manuel)." 
-    "female(diana)."))
+(def valid-facts (long-str "male(manuel)." "male(esteban)." "father(esteban, manuel)."
+                           "female(diana)."))
 (def invalid-facts (long-str valid-facts "mother(diana"))
 
 (deftest valid-queries-of-valid-facts-test
@@ -17,7 +17,7 @@
   (is (false? (evaluate-query valid-facts "father(manuel, esteban)"))))
 
 (deftest invalid-queries-of-valid-facts-test
-  (testing "Doing invalid queries or queries of non existent 
+  (testing "Doing invalid queries or queries of non existent
     valid facts database should return always false")
   (is (nil? (evaluate-query valid-facts "male(manuel,)")))
   (is (nil? (evaluate-query valid-facts "father(esteban, manuel"))))
